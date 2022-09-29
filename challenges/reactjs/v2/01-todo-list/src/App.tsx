@@ -1,16 +1,15 @@
-import { PlusCircle } from 'phosphor-react';
-
 import { Header } from './components/Header';
-import { IconButton } from './components/IconButton';
 
 import './styles/global.css';
+import styles from './App.module.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.app}>
       <Header />
-      <h1>Hello World</h1>
-      <IconButton label="Criar" icon={<PlusCircle size={20} />} />
+      <div className={styles.wrapper}>
+        <h1>Hello World</h1>
+      </div>
     </div>
   );
 }
