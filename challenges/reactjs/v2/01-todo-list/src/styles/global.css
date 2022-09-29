@@ -41,12 +41,9 @@ textarea,
 button {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
+  border: 0;
 }
 
 button {
   cursor: pointer;
-}
-
-input {
-  border: 0;
 }
