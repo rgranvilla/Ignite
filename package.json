@@ -1,19 +1,34 @@
 {
   "name": "ignite",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "courses/reactjs/v1/*",
+    "courses/reactjs/v2/*",
+    "courses/react-native/v1/*",
+    "courses/nodejs/v1/*",
+    "courses/elixir/v1/*",
+    "challenges/reactjs/v1/*",
+    "challenges/reactjs/v2/*",
+    "challenges/react-native/v1/*",
+    "challenges/nodejs/v1/*",
+    "challenges/elixir/v1/*",
+    "global-configs/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "commitizen": "^4.2.5",
     "eslint-config-custom": "*",
+    "husky": "^8.0.0",
     "prettier": "latest",
     "turbo": "latest"
   },

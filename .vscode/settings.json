@@ -1,0 +1,16 @@
+{
+  "material-icon-theme.folders.associations": {
+    //packages
+    "courses": "packages",
+    "v1": "packages",
+    "v2": "packages",
+    "challenges": "packages",
+    "nodejs": "node",
+    "reactjs": "react-components",
+    "react-native": "react-components",
+    "elixir": "vm",
+    "global-configs": "global",
+    "eslint-config-custom": "config",
+    "tsconfig": "config"
+  }
+}

@@ -1,73 +1,122 @@
-# Turborepo starter
+[![Banner Ignite](./assets/banner-ignite.png)](https://home.devtrails.com.br/)
 
-This is an official Yarn v1 starter turborepo.
+<h3 align="center">
+🚧 Repositório do Curso Ignite Rocketseat 🚀 em construção... 🚧
+<br>
+<br>
+</h3>
 
-## What's inside?
+# Ignite
 
-This turborepo uses [Yarn](https://classic.yarnpkg.com/) as a package manager. It includes the following packages/apps:
+<br>
+<br>
 
-### Apps and Packages
+## 💻 **Sobre o curso**
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+<br>
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+O Ignite é um programa de aceleração para devs, focado em preparar profissionais completos(as) para o mercado, treinando skills técnicas e comportamentais de forma intensiva e prática. O Ignite é dividido em trilhas de conhecimento não-dependentes onde nos aprofundamos em uma tecnologia específica.
 
-### Utilities
+Em resumo, o objetivo do Ignite é desenvolver habilidades que vão acelerar sua carreira através de uma metodologia de aprendizado eficiente, um currículo alinhado às necessidades do mercado e as atitudes que vão te ajudar a se destacar como profissional.
+<br>
+<br>
 
-This turborepo has some additional tools already setup for you:
+<div style="display:flex; justify-content:space-between">
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+<div>
 
-### Build
+[![Rocketseat](./assets/rocketseat.svg)](https://www.rocketseat.com.br/)
 
-To build all apps and packages, run the following command:
+</div>
 
-```
-cd my-turborepo
-yarn run build
-```
+<div>
 
-### Develop
+[![Rocketseat Ignite](./assets/ignite.svg)](https://lp.rocketseat.com.br/ignite?&).
 
-To develop all apps and packages, run the following command:
+</div>
 
-```
-cd my-turborepo
-yarn run dev
-```
+</div>
 
-### Remote Caching
+<br/>
+<br/>
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+---
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+## 📖 **Trilhas**
 
-```
-cd my-turborepo
-npx turbo login
-```
+- [ReactJs](#-reactjs)
+- [React Native](#-react-native)
+- [Node Js](#-nodejs)
+- [Elixir](#-elixir)
+  <br>
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+<br/>
+<br/>
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
+---
 
-```
-npx turbo link
-```
+## 🛠 Tecnologias
 
-## Useful Links
+<br>
 
-Learn more about the power of Turborepo:
+- Linguagens e Supersets:
 
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+  - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+  - [TypeScript](https://www.typescriptlang.org/)
+    <br>
+    <br>
+
+- Runtimes:
+
+  - [Node Js](https://nodejs.org/pt-br/)
+    <br>
+    <br>
+
+- Frameworks:
+
+  - [React Js](https://pt-br.reactjs.org/)
+  - [React Native](https://reactnative.dev/)
+  - [Next.js](https://nextjs.org/)
+    <br>
+    <br>
+
+- Outras Ferramentas:
+
+  - [Sass](https://sass-lang.com/)
+  - [Date-fns](https://date-fns.org/v2.21.1/docs/format)
+    <br>  
+    <br>
+
+- Rendering Patterns:
+  - Single Page Aplication (SPA)
+  - Server-side Rendering (SSR)
+  - Static Site Generations (SSG)
+    <br>
+    <br>
+
+## 🖥 ReactJs
+
+...
+
+...
+
+🚧 Trilha React Js 🚀 em construção... 🚧
+<br/>
+<br/>
+
+---
+
+## Desenvolvedor
+
+<br>
+
+[![Ricardo Granvilla](./assets/author.png)](https://github.com/rgranvilla)
+
+<a href="https://github.com/rgranvilla">Ricardo Granvilla 🚀</a>
+
+[![Twitter Badge](https://img.shields.io/badge/-@rgranvilla-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/rgranvilla)](https://twitter.com/rgranvilla)
+[![Linkedin Badge](https://img.shields.io/badge/-Ricardo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/rgranvilla/)](https://www.linkedin.com/in/rgranvilla/)
+[![Gmail Badge](https://img.shields.io/badge/-rgranvilla@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:rgranvilla@gmail.com)](mailto:rgranvilla@gmail.com)
+
+<br>
+<br>
