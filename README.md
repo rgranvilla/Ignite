@@ -40,48 +40,60 @@ Em resumo, o objetivo do Ignite é desenvolver habilidades que vão acelerar sua
 
 ## 🛠 Tecnologias
 
-<br>
+<p>&nbsp;</p>
 
 - Linguagens e Supersets:
 
   - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
   - [TypeScript](https://www.typescriptlang.org/)
-    <br>
-    <br>
+  <p>&nbsp;</p>
 
 - Runtimes:
 
   - [Node Js](https://nodejs.org/pt-br/)
-    <br>
-    <br>
+  <p>&nbsp;</p>
 
 - Frameworks:
 
   - [React Js](https://pt-br.reactjs.org/)
   - [React Native](https://reactnative.dev/)
   - [Next.js](https://nextjs.org/)
-    <br>
-    <br>
+  <p>&nbsp;</p>
 
 - Outras Ferramentas:
 
-  - [Sass](https://sass-lang.com/)
   - [Date-fns](https://date-fns.org/v2.21.1/docs/format)
-    <br>  
-    <br>
+  - [EsLint](https://eslint.org/)
+  - [Prettier](https://prettier.io/)
+  - [Commitizen](https://github.com/commitizen/cz-cli#readme)
+  - [Husky](https://typicode.github.io/husky/#/)
+  - [Uuid](https://github.com/uuidjs/uuid#readme)
+  - [ViteJs](https://vitejs.dev/)
+  - [Turborepo](https://turborepo.org/)
+    <p>&nbsp;</p>
 
 - Rendering Patterns:
   - Single Page Aplication (SPA)
   - Server-side Rendering (SSR)
   - Static Site Generations (SSG)
-    <br>
-    <br>
+  <p>&nbsp;</p>
 
-## 🖥 ReactJs
+## 🖥 ReactJs / v2
 
-### Projeto 01
+### Projeto 01 - Iniciando com React
 
-...
+Nesse módulo, criaremos uma aplicação React utilizando o Vite e aprenderemos sobre os conceitos mais importantes do React, entre eles estão componentização, propriedades, estados, imutabilidade e hooks, além de aplicar o Typescript no nosso projeto para adicionar tipagem estática à aplicação.
+
+  <p>&nbsp;</p>
+
+Packages:
+<br>
+courses/reactjs/v2/
+
+- [01-ignite-feed](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/01-ignite-feed)
+- [01-ignite-feed-ts](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/01-ignite-feed-ts)
+
+  <p>&nbsp;</p>
 
 🚧 Trilha React Js 🚀 em construção... 🚧
 
