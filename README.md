@@ -2,14 +2,13 @@
 
 <h3 align="center">
 🚧 Repositório do Curso Ignite Rocketseat 🚀 em construção... 🚧
-<br>
-<br>
+<p>&nbsp;</p>
+
 </h3>
 
 # Ignite
 
-<br>
-<br>
+<p>&nbsp;</p>
 
 ## 💻 **Sobre o curso**
 
@@ -21,26 +20,13 @@ Em resumo, o objetivo do Ignite é desenvolver habilidades que vão acelerar sua
 <br>
 <br>
 
-<div style="display:flex; justify-content:space-between">
-
-<div>
-
 [![Rocketseat](./assets/rocketseat.svg)](https://www.rocketseat.com.br/)
 
-</div>
-
-<div>
+<p>&nbsp;</p>
 
 [![Rocketseat Ignite](./assets/ignite.svg)](https://lp.rocketseat.com.br/ignite?&).
 
-</div>
-
-</div>
-
-<br/>
-<br/>
-
----
+<p>&nbsp;</p>
 
 ## 📖 **Trilhas**
 
@@ -50,10 +36,7 @@ Em resumo, o objetivo do Ignite é desenvolver habilidades que vão acelerar sua
 - [Elixir](#-elixir)
   <br>
 
-<br/>
-<br/>
-
----
+<p>&nbsp;</p>
 
 ## 🛠 Tecnologias
 
@@ -101,14 +84,12 @@ Em resumo, o objetivo do Ignite é desenvolver habilidades que vão acelerar sua
 ...
 
 🚧 Trilha React Js 🚀 em construção... 🚧
-<br/>
-<br/>
 
----
+<p>&nbsp;</p>
 
 ## Desenvolvedor
 
-<br>
+<p>&nbsp;</p>
 
 [![Ricardo Granvilla](./assets/author.png)](https://github.com/rgranvilla)
 
@@ -118,5 +99,4 @@ Em resumo, o objetivo do Ignite é desenvolver habilidades que vão acelerar sua
 [![Linkedin Badge](https://img.shields.io/badge/-Ricardo-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/rgranvilla/)](https://www.linkedin.com/in/rgranvilla/)
 [![Gmail Badge](https://img.shields.io/badge/-rgranvilla@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:rgranvilla@gmail.com)](mailto:rgranvilla@gmail.com)
 
-<br>
-<br>
+<p>&nbsp;</p>
