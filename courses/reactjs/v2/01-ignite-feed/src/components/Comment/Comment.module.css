@@ -1,0 +1,98 @@
+.comment {
+  color: var(--gray-100);
+  display: flex;
+  gap: 1rem;
+}
+
+.commentBox {
+  width: 100%;
+}
+
+.commentContent {
+  background: var(--gray-700);
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.commentContent header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.authorAndTime {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorAndTime strong {
+  font-size: 0.875rem;
+  color: var(--gray-100);
+  line-height: 1.6;
+}
+.authorAndTime strong span {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+.commentTime {
+  font-size: 0.7 5rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+.deleteButton {
+  background: transparent;
+  border: 0;
+  color: var(--gray-400);
+  height: fit-content;
+  line-height: 0;
+  border-radius: 2px;
+  transition: color 0.1s;
+}
+
+.deleteButton:hover {
+  color: var(--red-500);
+}
+
+.deleteButton:focus:hover {
+  box-shadow: 0 0 0 2px var(--red-500);
+}
+
+.commentContent > div {
+  padding-top: 1rem;
+  color: var(--gray-300);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.commentContent > div p {
+  color: var(--gray-300);
+  line-height: 1.6;
+}
+
+.footer {
+  padding-top: 1rem;
+}
+
+.footer button {
+  background: transparent;
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  border: 0;
+  transition: color 0.1s;
+  border-radius: 2px;
+}
+
+.footer button span::before {
+  content: '\2022';
+}
+
+.footer button:hover {
+  color: var(--gray-300);
+}
