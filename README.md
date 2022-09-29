@@ -78,7 +78,7 @@ Em resumo, o objetivo do Ignite é desenvolver habilidades que vão acelerar sua
   - Static Site Generations (SSG)
   <p>&nbsp;</p>
 
-## 🖥 ReactJs / v2
+## 🖥 ReactJs
 
 ### Projeto 01 - Iniciando com React
 
