@@ -42,6 +42,7 @@
   border-radius: 50%;
 
   background: var(--purple-dark);
+  color: var(--gray-100);
 
   transition: all 0.2s;
 
