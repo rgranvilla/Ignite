@@ -1,14 +1,31 @@
+import { v4 as uuidV4 } from 'uuid';
+
 import { CompletedTaskDisplay } from '../CompletedTaskDisplay';
 import { CreatedTaskDisplay } from '../CreatedTaskDisplay';
-import { TasksItem } from '../TasksItems';
+import { TasksItem } from '../TasksItem';
 
 import clipboard from '../../assets/clipboard.svg';
 
 import styles from './TasksContainer.module.css';
+import { ITasksDTO } from '../../database/dtos/TasksDTO';
+import { useEffect, useState } from 'react';
 
-function TasksContainer() {
-  let amountTask = 15;
-  let amountCompleted = 11;
+interface ITasksContainerProps {
+  tasks: ITasksDTO[];
+  onDeleteTask: (id: string) => void;
+  onCompleteTask: (id: string) => void;
+}
+
+function TasksContainer({ tasks, onDeleteTask, onCompleteTask }: ITasksContainerProps) {
+  const [data, setData] = useState<ITasksDTO[]>(tasks);
+
+  useEffect(() => {
+    setData(tasks);
+  }, [tasks]);
+
+  const amountTask = data.length;
+  const amountCompleted = data.filter(({ completed }) => completed).length;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -25,9 +42,19 @@ function TasksContainer() {
         </div>
       ) : (
         <div className={styles.tasksWrapper}>
-          <TasksItem checked />
-          <TasksItem />
-          <TasksItem checked />
+          {data.map(({ id, task, completed }: ITasksDTO) => (
+            <TasksItem
+              completed={completed}
+              task={task}
+              key={id}
+              onDeleteTask={() => {
+                onDeleteTask(id);
+              }}
+              onCompleteTask={() => {
+                onCompleteTask(id);
+              }}
+            />
+          ))}
         </div>
       )}
     </div>
