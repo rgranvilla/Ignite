@@ -1,0 +1,88 @@
+.container {
+  width: 100%;
+  border: 2px solid var(--gray-400);
+  border-radius: 8px;
+
+  background: var(--gray-500);
+
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.selectButtonUnchecked {
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+
+  background: transparent;
+  color: transparent;
+
+  transition: all 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectButtonUnchecked:hover {
+  border: 2px solid var(--purple-dark);
+  background: var(--purple-dark);
+  color: var(--gray-100);
+}
+
+.selectButtonChecked {
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 2px solid var(--purple-dark);
+  border-radius: 50%;
+
+  background: var(--purple-dark);
+
+  transition: all 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectButtonChecked:hover {
+  border: 2px solid var(--blue);
+  background: transparent;
+  color: transparent;
+}
+
+.content {
+  color: var(--gray-100);
+  font-size: 0.875rem;
+}
+
+.contentChecked {
+  color: var(--gray-300);
+  text-decoration-line: line-through;
+}
+
+.contentUnchecked {
+  text-decoration-line: none;
+}
+
+.deleteButton {
+  border: 0;
+  border-radius: 2px;
+
+  background: transparent;
+  color: var(--gray-300);
+
+  height: fit-content;
+  line-height: 0;
+
+  transition: color 0.2s;
+}
+
+.deleteButton:hover {
+  color: var(--danger);
+}
