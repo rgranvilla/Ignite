@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.wrapper strong {
+  color: var(--blue);
+  font-size: 0.875rem;
+}
+
+.counterWrapper {
+  background: var(--gray-400);
+  color: var(--gray-200);
+
+  height: 1.25rem;
+  padding: 0 0.5rem;
+  border-radius: 4rem;
+
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

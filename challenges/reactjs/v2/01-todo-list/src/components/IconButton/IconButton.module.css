@@ -1,0 +1,17 @@
+.button {
+  background: var(--purple);
+  color: var(--gray-100);
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background: var(--purple-dark);
+}

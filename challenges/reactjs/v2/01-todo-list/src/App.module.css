@@ -1,0 +1,12 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 46rem;
+
+  margin-top: 5.75rem;
+}
