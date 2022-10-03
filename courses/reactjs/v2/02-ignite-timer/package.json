@@ -1,6 +1,6 @@
 {
   "name": "@reactjs/ignite-timer",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "./src/main.tsx",
   "type": "module",
   "private": true,
