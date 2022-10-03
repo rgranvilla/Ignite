@@ -27,6 +27,9 @@ interface CyclesContextType {
   activeCycle: Cycle | undefined;
   activeCycleId: string | null;
   amountSecondsPassed: number;
+  totalSeconds: number;
+  minutes: string;
+  seconds: string;
   markCurrentCycleAsFinished: () => void;
   setSecondsPassed: (seconds: number) => void;
   createNewCycle: (data: CreateCycleData) => void;
@@ -76,6 +79,52 @@ export function CyclesContextProvider({
     localStorage.setItem("@ignite-timer:cycles-state-1.0.0", stateJSON);
   }, [cyclesState]);
 
+  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0;
+  const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0;
+
+  const minutesAmount = Math.floor(currentSeconds / 60);
+  const secondsAmount = currentSeconds % 60;
+
+  const minutes = String(minutesAmount).padStart(2, "0");
+  const seconds = String(secondsAmount).padStart(2, "0");
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+
+    if (activeCycle) {
+      interval = setInterval(() => {
+        const secondsDifferences = differenceInSeconds(
+          new Date(),
+          new Date(activeCycle.startDate)
+        );
+
+        if (secondsDifferences >= totalSeconds) {
+          markCurrentCycleAsFinished();
+          setSecondsPassed(totalSeconds);
+          clearInterval(interval);
+        } else {
+          setSecondsPassed(secondsDifferences);
+        }
+      }, 1000);
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [
+    activeCycle,
+    totalSeconds,
+    activeCycleId,
+    markCurrentCycleAsFinished,
+    setSecondsPassed,
+  ]);
+
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `${minutes}:${seconds}`;
+    }
+    console.log(seconds);
+  }, [minutes, seconds, activeCycle]);
+
   function setSecondsPassed(seconds: number) {
     setAmountSecondsPassed(seconds);
   }
@@ -114,6 +163,9 @@ export function CyclesContextProvider({
         setSecondsPassed,
         createNewCycle,
         interruptCurrentCycle,
+        totalSeconds,
+        minutes,
+        seconds,
       }}
     >
       {children}
