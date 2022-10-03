@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "vite --port 3002",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint src --ext .ts,.tsx"
+    "preview": "vite preview"
   },
   "dependencies": {
     "phosphor-react": "^1.4.1",
