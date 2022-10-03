@@ -6,11 +6,8 @@ import {
   useState,
 } from "react";
 import { v4 as uuidV4 } from "uuid";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as zod from "zod";
 import { Cycle, cyclesReducer } from "../reducers/cycles/reducer";
 import {
-  ActionTypes,
   addNewCycleAction,
   interruptCurrentCycleAction,
   markCurrentCycleAsFinishedAction,
@@ -122,7 +119,6 @@ export function CyclesContextProvider({
     if (activeCycle) {
       document.title = `${minutes}:${seconds}`;
     }
-    console.log(seconds);
   }, [minutes, seconds, activeCycle]);
 
   function setSecondsPassed(seconds: number) {
