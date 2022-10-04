@@ -4,3 +4,4 @@ yarn.lock
 *.cjs
 *.json
 vite.config.ts
+./tsconfig.json

@@ -1,9 +1,14 @@
 import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
-export const CartButtonContainer = styled.button`
-  width: 3.25rem;
-  height: 3.25rem;
+interface CartButtonProps {
+  bgColor: 'purple-dark' | 'yellow-light';
+  fillColor: 'base-card' | 'yellow-dark';
+}
+
+export const CartButtonContainer = styled.button<CartButtonProps>`
+  width: 2.375rem;
+  height: 2.375rem;
 
   position: relative;
 
@@ -14,13 +19,19 @@ export const CartButtonContainer = styled.button`
   border: 0;
   border-radius: 6px;
 
-  background: ${(props) => props.theme['yellow-light']};
-  color: ${(props) => props.theme['yellow-dark']};
+  background: ${(props) => props.theme[props.bgColor]};
+  color: ${(props) => props.theme[props.fillColor]};
 
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${(props) => shade(0.02, props.theme['yellow-light'])};
+    background-color: ${(props) =>
+      shade(
+        0.05,
+        props.bgColor === 'purple-dark'
+          ? props.theme['purple']
+          : props.theme['yellow-light'],
+      )};
   }
 `;
 

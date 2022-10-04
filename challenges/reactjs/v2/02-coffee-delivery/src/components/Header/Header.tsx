@@ -11,7 +11,7 @@ function Header() {
       <img src={logo} />
       <nav>
         <LocationButton />
-        <CartButton counter={2} />
+        <CartButton counter={2} bgColor={'yellow-light'} fillColor={'yellow-dark'} />
       </nav>
     </HeaderContainer>
   );
