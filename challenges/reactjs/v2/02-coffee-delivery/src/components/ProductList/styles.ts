@@ -4,6 +4,7 @@ export const ProductListContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.375rem;
+  padding-bottom: 10rem;
 `;
 
 export const TitleWrapper = styled.div`
