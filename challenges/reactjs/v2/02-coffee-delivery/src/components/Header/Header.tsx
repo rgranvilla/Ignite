@@ -3,6 +3,7 @@ import { LocationButton } from '../LocationButton';
 import { HeaderContainer } from './styles';
 
 import logo from '../../assets/logo-coffee-delivery.svg';
+import { CartButton } from '../CartButton';
 
 function Header() {
   return (
@@ -10,7 +11,7 @@ function Header() {
       <img src={logo} />
       <nav>
         <LocationButton />
-        <button>Cart</button>
+        <CartButton />
       </nav>
     </HeaderContainer>
   );
