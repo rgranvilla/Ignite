@@ -1,12 +1,15 @@
-import logo from '../../assets/logo-coffee-delivery.svg';
+import { LocationButton } from '../LocationButton';
+
 import { HeaderContainer } from './styles';
+
+import logo from '../../assets/logo-coffee-delivery.svg';
 
 function Header() {
   return (
     <HeaderContainer>
       <img src={logo} />
       <nav>
-        <button>Localização</button>
+        <LocationButton />
         <button>Cart</button>
       </nav>
     </HeaderContainer>
