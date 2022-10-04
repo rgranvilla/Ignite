@@ -1,9 +1,11 @@
+import { Cart } from '../../components/Cart';
 import { CheckoutContainer } from './styles';
 
 function Checkout() {
   return (
     <CheckoutContainer>
-      <h1>Checkout</h1>
+      <h1>Complete seu pedido</h1>
+      <Cart />
     </CheckoutContainer>
   );
 }
