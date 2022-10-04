@@ -29,8 +29,6 @@ interface CounterProps {
 }
 
 export const CounterWrapper = styled.div<CounterProps>`
-  opacity: ${(props) => (props.hasItem ? 1 : 0)};
-
   height: 1.25rem;
   width: 1.25rem;
 
@@ -43,4 +41,12 @@ export const CounterWrapper = styled.div<CounterProps>`
 
   background: ${(props) => props.theme['yellow-dark']};
   border-radius: 9999px;
+
+  opacity: ${(props) => (props.hasItem ? 1 : 0)};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.75rem;
 `;

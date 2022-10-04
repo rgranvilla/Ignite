@@ -11,7 +11,7 @@ function Header() {
       <img src={logo} />
       <nav>
         <LocationButton />
-        <CartButton />
+        <CartButton counter={2} />
       </nav>
     </HeaderContainer>
   );

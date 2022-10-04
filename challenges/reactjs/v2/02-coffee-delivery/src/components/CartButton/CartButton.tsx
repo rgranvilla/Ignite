@@ -2,7 +2,7 @@ import { ShoppingCart } from 'phosphor-react';
 import { CartButtonContainer, CounterWrapper } from './styles';
 
 interface CartButtonProps {
-  counter: number;
+  counter?: number;
 }
 
 function CartButton({ counter = 0 }: CartButtonProps) {
