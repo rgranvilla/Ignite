@@ -1,9 +1,10 @@
+import { Intro } from '../../components/Intro';
 import { HomeContainer } from './styles';
 
 function Home() {
   return (
     <HomeContainer>
-      <h1>Home</h1>
+      <Intro />
     </HomeContainer>
   );
 }
