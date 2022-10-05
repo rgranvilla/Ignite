@@ -1,10 +1,11 @@
 import { Cart } from '../../components/Cart';
+import { FormCheckout } from '../../components/FormCheckout';
 import { CheckoutContainer } from './styles';
 
 function Checkout() {
   return (
     <CheckoutContainer>
-      <h1>Complete seu pedido</h1>
+      <FormCheckout />
       <Cart />
     </CheckoutContainer>
   );

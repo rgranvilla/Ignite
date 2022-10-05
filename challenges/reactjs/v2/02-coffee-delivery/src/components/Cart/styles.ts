@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const CartContainer = styled.div`
-  max-width: 28rem;
-  width: 100%;
+  min-width: 28rem;
 `;
 
 export const TitleWrapper = styled.h1`
@@ -10,12 +9,13 @@ export const TitleWrapper = styled.h1`
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 130%;
+
+  margin-bottom: 1rem;
 `;
 
 export const CartCardContainer = styled.div`
   background: ${(props) => props.theme['base-card']};
   padding: 2.5rem;
-  margin-top: 1rem;
 
   border-radius: 6px 44px;
 

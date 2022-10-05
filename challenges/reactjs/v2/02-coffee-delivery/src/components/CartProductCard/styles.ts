@@ -43,7 +43,7 @@ export const DescriptionControllsButtons = styled.div`
   white-space: nowrap;
 `;
 
-export const PriceContainer = styled.text`
+export const PriceContainer = styled.p`
   font-size: 1rem;
   font-weight: 700;
   text-align: right;
