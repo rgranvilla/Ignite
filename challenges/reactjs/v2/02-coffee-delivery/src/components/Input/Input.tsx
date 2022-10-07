@@ -1,10 +1,8 @@
 import {
-  FormEvent,
   forwardRef,
   ForwardRefRenderFunction,
   InputHTMLAttributes,
   useEffect,
-  useState,
 } from 'react';
 import { FieldError } from 'react-hook-form';
 import { Container, InputContainer, MessageError, PlaceholderWarning } from './styles';
@@ -31,11 +29,13 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   }: InputProps,
   ref,
 ) => {
-  const { ref: iMaskRef, setValue } = useIMask({ mask });
+  const { ref: iMaskRef, setValue, value } = useIMask({ mask });
 
   useEffect(() => {
     setValue(setDefaultValue);
-  }, [setDefaultValue, setValue]);
+  }, []);
+
+  const isEmpty = value.length === 0;
 
   return (
     <Container>
@@ -47,8 +47,14 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         remWidth={remWidth}
         isInvalid={!!error}
         {...rest}
+        onChange={(event) => setValue(event.target.value)}
       />
-      {optional && <PlaceholderWarning remWidth={remWidth}>Opcional</PlaceholderWarning>}
+
+      {optional && isEmpty && (
+        <PlaceholderWarning remWidth={remWidth} className="placeholderInfo">
+          Opcional
+        </PlaceholderWarning>
+      )}
     </Container>
   );
 };
@@ -82,16 +88,18 @@ const InputWithCallbackBase: ForwardRefRenderFunction<
   }: InputWithCallbackProps,
   ref,
 ) => {
-  const { ref: iMaskRef, setValue, unmaskedValue } = useIMask({ mask });
+  const { ref: iMaskRef, setValue, unmaskedValue, value } = useIMask({ mask });
 
   useEffect(() => {
     setValue(setDefaultValue);
-  }, [setDefaultValue, setValue]);
+  }, []);
 
   useEffect(() => {
     if (unmaskedValue.length === lengthUnmaskedValueConditionToCallback)
       callback(unmaskedValue);
   }, [unmaskedValue]);
+
+  const isEmpty = value.length === 0;
 
   return (
     <Container>
@@ -102,9 +110,12 @@ const InputWithCallbackBase: ForwardRefRenderFunction<
         ref={mergeRefs([iMaskRef, ref])}
         remWidth={remWidth}
         isInvalid={!!error}
+        onChange={(event) => setValue(event.target.value)}
         {...rest}
       />
-      {optional && <PlaceholderWarning remWidth={remWidth}>Opcional</PlaceholderWarning>}
+      {optional && isEmpty && (
+        <PlaceholderWarning remWidth={remWidth}>Opcional</PlaceholderWarning>
+      )}
     </Container>
   );
 };

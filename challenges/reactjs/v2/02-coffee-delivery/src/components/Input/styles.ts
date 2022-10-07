@@ -20,6 +20,8 @@ export const Container = styled.div`
 `;
 
 export const InputContainer = styled.input<InputType>`
+  position: relative;
+
   width: ${(props) => props.remWidth}rem;
   height: 2.625rem;
 
@@ -31,13 +33,16 @@ export const InputContainer = styled.input<InputType>`
   padding: 0.75rem;
 
   &::placeholder {
-    position: relative;
     font-size: 0.875rem;
     color: ${(props) => props.theme['base-label']};
   }
 
   &:focus {
     border-color: ${(props) => props.theme['yellow-dark']};
+
+    + .placeholderInfo {
+      visibility: hidden;
+    }
   }
 
   ${(props) =>
@@ -49,12 +54,11 @@ export const InputContainer = styled.input<InputType>`
 
 export const PlaceholderWarning = styled.span<PlaceholderWarningType>`
   position: absolute;
-
+  transform: translate(0, 14px);
   padding-right: 1rem;
 
   font-size: 0.75rem;
   font-style: italic;
-  transform: translateX(calc(${(props) => props.remWidth * 16 - 80}px));
 
   color: ${(props) => props.theme['base-label']};
 `;
