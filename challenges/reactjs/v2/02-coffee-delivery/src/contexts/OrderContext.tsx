@@ -5,6 +5,7 @@ import {
   decreaseAmountItemAction,
   deleteItemFromCartAction,
   saveOrderAction,
+  totalCartAutoUpdate,
 } from '../reducers/actions';
 import {
   ICartItemDTO,
@@ -20,7 +21,7 @@ interface OrderContextType {
   addCartItemAmount: (id: string) => void;
   decreaseCartItemAmount: (id: string) => void;
   removeCartItem: (id: string) => void;
-  saveNewOrder: (newOrder: IOrderStateDTO) => void;
+  saveNewOrder: (paymentData: IPaymentDTO) => void;
 }
 
 export const OrderContext = createContext({} as OrderContextType);
@@ -58,8 +59,8 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
       } else {
         return {
           cart: [...data],
-          totalCart: 0,
           payment: {},
+          totalCart: 0,
         };
       }
     },
@@ -74,11 +75,19 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
     localStorage.setItem('@ignite-challenge-coffee-delivery:cart-state-1.0.0', stateJSON);
   }, [orderState]);
 
+  function saveOrderInLocalStorage() {
+    const stateJSON = JSON.stringify(orderState);
+    console.log('orderState', orderState);
+    localStorage.setItem('@ignite-challenge-coffee-delivery:cart-state-1.0.0', stateJSON);
+    console.log('[SAVED]');
+  }
+
   function recalculateTotalCart() {
     const newTotalCart = cart
       .map(({ price, amount }) => amount * price)
       .reduce((previusValues, currentValues) => previusValues + currentValues, 0);
     setTotalCart(newTotalCart);
+    dispatch(totalCartAutoUpdate(newTotalCart));
   }
 
   useEffect(() => {
@@ -97,8 +106,15 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
     dispatch(deleteItemFromCartAction(id));
   }
 
-  function saveNewOrder(newOrder: IOrderStateDTO) {
+  function saveNewOrder(paymentData: IPaymentDTO) {
+    const newOrder: IOrderStateDTO = {
+      cart: orderState.cart,
+      payment: paymentData,
+      totalCart,
+    };
+
     dispatch(saveOrderAction(newOrder));
+    saveOrderInLocalStorage();
   }
 
   return (

@@ -22,10 +22,12 @@ import {
   RowContainer,
   TitleWrapper,
 } from './styles';
-import { KeyboardEvent, useEffect, useState } from 'react';
+import { KeyboardEvent, useContext, useEffect, useState } from 'react';
 import { inputMask } from '../../utils/maskPatterns';
 import { InputWithCallback } from '../../components/Input/Input';
 import { brasilApi } from '../../services/brasilApi';
+import { OrderContext } from '../../contexts/OrderContext';
+import { useNavigate } from 'react-router-dom';
 
 interface IApiAddressDTO {
   cep: string;
@@ -53,15 +55,12 @@ const createAddressFormSchema = yup.object({
 });
 
 function Checkout() {
+  const { saveNewOrder } = useContext(OrderContext);
   const { register, handleSubmit, formState, setValue, resetField } =
     useForm<IPaymentDTO>({
       resolver: yupResolver(createAddressFormSchema),
     });
   const { errors } = formState;
-
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
 
   async function handleGetAddress(cep: string) {
     try {
@@ -98,8 +97,15 @@ function Checkout() {
     if (event.code === 'Backspace' || event.code === 'Delete') resetFields();
   }
 
+  const navigate = useNavigate();
+
   const handleCreateOrder: SubmitHandler<IPaymentDTO> = (values) => {
-    console.log(values);
+    try {
+      saveNewOrder(values);
+      navigate('/checkout/success');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

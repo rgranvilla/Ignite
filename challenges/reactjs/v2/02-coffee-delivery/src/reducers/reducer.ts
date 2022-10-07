@@ -1,3 +1,4 @@
+import { Action } from '@remix-run/router';
 import { produce } from 'immer';
 
 import { ActionTypes } from './actions';
@@ -28,6 +29,7 @@ export interface IPaymentDTO {
 export interface IOrderStateDTO {
   cart: ICartItemDTO[];
   payment: IPaymentDTO;
+  totalCart: number;
 }
 
 export function cartReducer(state: IOrderStateDTO, action: any) {
@@ -58,7 +60,14 @@ export function cartReducer(state: IOrderStateDTO, action: any) {
 
     case ActionTypes.SAVE_ORDER: {
       return produce(state, (draft) => {
-        draft = action.payload.newOrder;
+        draft.cart = action.payload.cart;
+        draft.payment = action.payload.payment;
+      });
+    }
+
+    case ActionTypes.UPDATE_TOTAL_CART: {
+      return produce(state, (draft) => {
+        draft.totalCart = action.payload.totalCart;
       });
     }
     default:
