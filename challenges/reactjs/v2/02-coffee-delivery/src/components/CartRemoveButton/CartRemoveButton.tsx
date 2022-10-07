@@ -1,9 +1,12 @@
 import { Trash } from 'phosphor-react';
+import { ButtonHTMLAttributes } from 'react';
 import { RemoveButtonContainer } from './styles';
 
-function CartRemoveButton() {
+interface CartRemoveButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+
+function CartRemoveButton({ ...rest }) {
   return (
-    <RemoveButtonContainer>
+    <RemoveButtonContainer {...rest}>
       <Trash size={16} />
       <span>REMOVER</span>
     </RemoveButtonContainer>

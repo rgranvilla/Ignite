@@ -1,3 +1,5 @@
+import { CartItemDTO } from '../../contexts/Cart/reducers/reducer';
+import { formatPrice } from '../../utils/formatPrice';
 import { CartRemoveButton } from '../CartRemoveButton';
 
 import { SelectAmount } from '../SelectAmount';
@@ -12,21 +14,31 @@ import {
   DescriptionTitleContent,
 } from './styles';
 
-function CartProductCard() {
+interface CartProductCardProps {
+  data: CartItemDTO;
+  onAdd: () => void;
+  onDecreased: () => void;
+  onDelete: () => void;
+}
+
+function CartProductCard({ data, onAdd, onDecreased, onDelete }: CartProductCardProps) {
+  const { name, amount, price, image } = data;
+  const subtotal = formatPrice.format((price * amount) / 100);
+
   return (
     <CartProductCardContainer>
       <CartProductCardContent>
         <DescriptionContent>
-          <img src={'./expresso.svg'} />
+          <img src={image} />
           <DescriptionRightContent>
-            <DescriptionTitleContent>Expresso Tradicional</DescriptionTitleContent>
+            <DescriptionTitleContent>{name}</DescriptionTitleContent>
             <DescriptionControllsButtons>
-              <SelectAmount amount={2} onAdd={() => {}} onDecrease={() => {}} />
-              <CartRemoveButton />
+              <SelectAmount amount={amount} onAdd={onAdd} onDecrease={onDecreased} />
+              <CartRemoveButton onClick={onDelete} />
             </DescriptionControllsButtons>
           </DescriptionRightContent>
         </DescriptionContent>
-        <PriceContainer>R$ 9,90</PriceContainer>
+        <PriceContainer>R$ {subtotal}</PriceContainer>
       </CartProductCardContent>
     </CartProductCardContainer>
   );

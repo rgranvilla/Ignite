@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { coffees, IProductsDTO } from '../../database/db-coffee';
-import { ProductCard } from '../ProductCard';
+import { ProductCard } from '../../../../components/ProductCard';
+import { coffees, IProductsDTO } from '../../../../database/db-coffee';
 import { CardsContainer, ProductListContainer, TitleWrapper } from './styles';
 
 function ProductList() {

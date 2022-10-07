@@ -1,5 +1,5 @@
-import { Intro } from '../../components/Intro';
-import { ProductList } from '../../components/ProductList';
+import { Intro } from './components/Intro';
+import { ProductList } from './components/ProductList';
 import { HomeContainer } from './styles';
 
 function Home() {

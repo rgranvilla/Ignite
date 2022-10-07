@@ -5,10 +5,10 @@ import { HeaderContainer } from './styles';
 import logo from '../../assets/logo-coffee-delivery.svg';
 import { CartButton } from '../CartButton';
 import { useContext } from 'react';
-import { CartContext, CartContextType } from '../../contexts/CartContext';
+import { OrderContext } from '../../contexts/OrderContext';
 
 function Header() {
-  const { cart } = useContext(CartContext);
+  const { cart } = useContext(OrderContext);
   const amountItems = cart.length;
   return (
     <HeaderContainer>

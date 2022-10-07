@@ -1,4 +1,9 @@
+import { useContext } from 'react';
+
+import { OrderContext } from '../../contexts/OrderContext';
+import { formatPrice } from '../../utils/formatPrice';
 import { CartProductCard } from '../CartProductCard';
+
 import {
   CartCardContainer,
   CartContainer,
@@ -9,16 +14,30 @@ import {
   TitleWrapper,
 } from './styles';
 
-function Cart() {
+interface CartProps {
+  onSubmit: () => void;
+}
+
+function Cart({ onSubmit }: CartProps) {
+  const { cart, totalCart, addCartItemAmount, decreaseCartItemAmount, removeCartItem } =
+    useContext(OrderContext);
+  const total = formatPrice.format(totalCart / 100);
   return (
     <CartContainer>
       <TitleWrapper>Cafés selecionados</TitleWrapper>
       <CartCardContainer>
-        <CartProductCard />
-        <CartProductCard />
+        {cart.map((item) => (
+          <CartProductCard
+            key={item.id}
+            data={item}
+            onAdd={() => addCartItemAmount(item.id)}
+            onDecreased={() => decreaseCartItemAmount(item.id)}
+            onDelete={() => removeCartItem(item.id)}
+          />
+        ))}
         <CartResumeContainer>
           <CartResumeItem>
-            <span>Total de itens</span>
+            <span>Total dos itens</span>
             <p>R$ 29,70</p>
           </CartResumeItem>
           <CartResumeItem>
@@ -27,11 +46,13 @@ function Cart() {
           </CartResumeItem>
           <CartResumeTotal>
             <span>Total</span>
-            <span>R$ 33,20</span>
+            <span>R$ {total}</span>
           </CartResumeTotal>
         </CartResumeContainer>
 
-        <ConfirmationButton>CONFIRMAR PEDIDO</ConfirmationButton>
+        <ConfirmationButton type="submit" onClick={onSubmit}>
+          CONFIRMAR PEDIDO
+        </ConfirmationButton>
       </CartCardContainer>
     </CartContainer>
   );

@@ -1,12 +1,22 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface InputType {
   remWidth: number;
+  isInvalid: boolean;
+}
+
+interface PlaceholderWarningType {
+  remWidth: number;
+}
+
+interface MessageErrorType {
+  isInvalid: boolean;
 }
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 export const InputContainer = styled.input<InputType>`
@@ -29,9 +39,15 @@ export const InputContainer = styled.input<InputType>`
   &:focus {
     border-color: ${(props) => props.theme['yellow-dark']};
   }
+
+  ${(props) =>
+    props.isInvalid &&
+    css`
+      border-color: red;
+    `}
 `;
 
-export const PlaceholderWarning = styled.span<InputType>`
+export const PlaceholderWarning = styled.span<PlaceholderWarningType>`
   position: absolute;
 
   padding-right: 1rem;
@@ -41,4 +57,21 @@ export const PlaceholderWarning = styled.span<InputType>`
   transform: translateX(calc(${(props) => props.remWidth * 16 - 80}px));
 
   color: ${(props) => props.theme['base-label']};
+`;
+
+export const MessageError = styled.span<MessageErrorType>`
+  ${(props) =>
+    props.isInvalid
+      ? css`
+          visibility: visible;
+        `
+      : css`
+          visibility: hidden;
+        `};
+  position: absolute;
+  padding-right: 0.5rem;
+  font-size: 0.625rem;
+  color: red;
+  white-space: nowrap;
+  transform: translate(0, -12px);
 `;

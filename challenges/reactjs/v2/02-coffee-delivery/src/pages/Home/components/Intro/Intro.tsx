@@ -12,7 +12,7 @@ import {
   Title,
 } from './styles';
 
-import cover from '../../assets/coffee-delivery.png';
+import cover from '../../../../assets/coffee-delivery.png';
 
 function Intro() {
   return (

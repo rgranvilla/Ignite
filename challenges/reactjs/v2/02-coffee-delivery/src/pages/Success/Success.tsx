@@ -1,6 +1,6 @@
 import { SuccessContainer } from './styles';
 
-import deliveryman from '../../../../assets/deliveryman.svg';
+import deliveryman from '../../assets/deliveryman.svg';
 import { SuccessResumeCard } from './components/SuccessResumeCard';
 
 function Success() {

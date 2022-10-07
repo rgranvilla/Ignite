@@ -1,3 +1,5 @@
+import { v4 as uuidV4 } from 'uuid';
+
 export interface IProductsDTO {
   id: string;
   type: string[];
@@ -8,6 +10,30 @@ export interface IProductsDTO {
   amount: number;
   available: boolean;
 }
+
+export const data = [
+  {
+    id: uuidV4(),
+    name: 'Expresso Tradicional',
+    image: './expresso.svg',
+    amount: 2,
+    price: 990,
+  },
+  {
+    id: uuidV4(),
+    name: 'Expresso Americano',
+    image: './americano.svg',
+    amount: 1,
+    price: 990,
+  },
+  {
+    id: uuidV4(),
+    name: 'Expresso Cremoso',
+    image: './expressoCremoso.svg',
+    amount: 4,
+    price: 990,
+  },
+];
 
 export const coffees = [
   {

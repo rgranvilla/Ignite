@@ -15,22 +15,18 @@ import { SelectAmount } from '../SelectAmount';
 import { CartButton } from '../CartButton';
 import { IProductsDTO } from '../../database/db-coffee';
 import { useState } from 'react';
+import { formatPrice } from '../../utils/formatPrice';
 
 interface ProductCardProps {
   product: IProductsDTO;
 }
-
-const priceFormatter = new Intl.NumberFormat('pt-BR', {
-  style: 'decimal',
-  minimumFractionDigits: 2,
-});
 
 function ProductCard({ product }: ProductCardProps) {
   const [amount, setAmount] = useState<number>(0);
 
   const { image, type, title, description, price } = product;
 
-  const formatedPrice = priceFormatter.format(price / 100);
+  const formatedPrice = formatPrice.format(price / 100);
 
   function handleAdd() {
     setAmount((state) => {

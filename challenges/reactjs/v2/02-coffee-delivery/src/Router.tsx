@@ -4,7 +4,7 @@ import { Checkout } from './pages/Checkout';
 import { Home } from './pages/Home';
 
 import { DefaultLayout } from './layouts/DefaultLayout';
-import { Success } from './pages/Checkout/components/Success';
+import { Success } from './pages/Success';
 
 function Router() {
   return (
