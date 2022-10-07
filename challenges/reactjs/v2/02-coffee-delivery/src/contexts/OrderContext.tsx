@@ -5,7 +5,7 @@ import {
   decreaseAmountItemAction,
   deleteItemFromCartAction,
   saveOrderAction,
-  totalCartAutoUpdate,
+  totalCartAutoUpdateAction,
 } from '../reducers/actions';
 import {
   ICartItemDTO,
@@ -22,6 +22,7 @@ interface OrderContextType {
   decreaseCartItemAmount: (id: string) => void;
   removeCartItem: (id: string) => void;
   saveNewOrder: (paymentData: IPaymentDTO) => void;
+  getOrderState: () => IOrderStateDTO;
 }
 
 export const OrderContext = createContext({} as OrderContextType);
@@ -47,7 +48,7 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
         },
         paymentMethod: '',
       },
-      totalCart: null,
+      totalCart: 0,
     },
     () => {
       const storedStateAsJSON = localStorage.getItem(
@@ -77,9 +78,7 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
 
   function saveOrderInLocalStorage() {
     const stateJSON = JSON.stringify(orderState);
-    console.log('orderState', orderState);
     localStorage.setItem('@ignite-challenge-coffee-delivery:cart-state-1.0.0', stateJSON);
-    console.log('[SAVED]');
   }
 
   function recalculateTotalCart() {
@@ -87,7 +86,7 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
       .map(({ price, amount }) => amount * price)
       .reduce((previusValues, currentValues) => previusValues + currentValues, 0);
     setTotalCart(newTotalCart);
-    dispatch(totalCartAutoUpdate(newTotalCart));
+    dispatch(totalCartAutoUpdateAction(newTotalCart));
   }
 
   useEffect(() => {
@@ -117,6 +116,10 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
     saveOrderInLocalStorage();
   }
 
+  function getOrderState() {
+    return orderState;
+  }
+
   return (
     <OrderContext.Provider
       value={{
@@ -127,6 +130,7 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
         decreaseCartItemAmount,
         removeCartItem,
         saveNewOrder,
+        getOrderState,
       }}
     >
       {children}

@@ -42,7 +42,7 @@ export function saveOrderAction(newOrder: IOrderStateDTO) {
   };
 }
 
-export function totalCartAutoUpdate(totalCart: number) {
+export function totalCartAutoUpdateAction(totalCart: number) {
   return {
     type: ActionTypes.UPDATE_TOTAL_CART,
     payload: {

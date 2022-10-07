@@ -70,6 +70,7 @@ export function cartReducer(state: IOrderStateDTO, action: any) {
         draft.totalCart = action.payload.totalCart;
       });
     }
+
     default:
       return state;
   }
