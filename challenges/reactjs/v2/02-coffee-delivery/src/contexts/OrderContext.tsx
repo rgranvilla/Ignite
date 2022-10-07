@@ -40,7 +40,7 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
           street: '',
           number: '',
           complement: '',
-          district: '',
+          neighborhood: '',
           city: '',
           state: '',
         },
