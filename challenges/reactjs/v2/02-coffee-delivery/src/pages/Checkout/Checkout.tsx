@@ -22,7 +22,19 @@ import {
   RowContainer,
   TitleWrapper,
 } from './styles';
-import { useEffect } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
+import { inputMask } from '../../utils/maskPatterns';
+import { InputWithCallback } from '../../components/Input/Input';
+import { brasilApi } from '../../services/brasilApi';
+
+interface IApiAddressDTO {
+  cep: string;
+  city: string;
+  neighborhood: string;
+  service: string;
+  state: string;
+  street: string;
+}
 
 const createAddressFormSchema = yup.object({
   paymentMethod: yup.string().required('Você deve selecionar uma forma de pagamento'),
@@ -33,29 +45,62 @@ const createAddressFormSchema = yup.object({
       street: yup.string().required('Este campo é obrigatório!'),
       number: yup.string().required('Este campo é obrigatório!'),
       complement: yup.string(),
-      district: yup.string().required('Este campo é obrigatório!'),
+      neighborhood: yup.string().required('Este campo é obrigatório!'),
       city: yup.string().required('Este campo é obrigatório!'),
       state: yup.string().required('Este campo é obrigatório!'),
     }),
   }),
 });
 
-//TODO: https://github.com/rgranvilla/acme-manager-app/blob/master/src/components/Forms/EditPatientForm/index.tsx linha 168
-//TODO: INSERIR MASCARAS NOS INPUTS
-
 function Checkout() {
-  const { register, handleSubmit, formState } = useForm<IPaymentDTO>({
-    resolver: yupResolver(createAddressFormSchema),
-  });
+  const { register, handleSubmit, formState, setValue, resetField } =
+    useForm<IPaymentDTO>({
+      resolver: yupResolver(createAddressFormSchema),
+    });
   const { errors } = formState;
-
-  const handleCreateOrder: SubmitHandler<IPaymentDTO> = (values) => {
-    console.log(values);
-  };
 
   useEffect(() => {
     console.log(errors);
   }, [errors]);
+
+  async function handleGetAddress(cep: string) {
+    try {
+      const response = await brasilApi.get(`/cep/v1/${cep}`);
+      const { street, neighborhood, city, state }: IApiAddressDTO = response.data;
+      setValue('address.street', street, { shouldValidate: true });
+      setValue('address.neighborhood', neighborhood, { shouldValidate: true });
+      setValue('address.city', city, { shouldValidate: true });
+      setValue('address.state', state, { shouldValidate: true });
+
+      document.getElementById('numberField')?.focus();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function resetFields() {
+    resetField('address.street');
+    resetField('address.number');
+    resetField('address.complement');
+    resetField('address.neighborhood');
+    resetField('address.city');
+    resetField('address.state');
+  }
+
+  const [crtlPressed, setCrtlPressed] = useState<boolean>(false);
+
+  function handleResetForm(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.code === 'ControlLeft' || event.code === 'ControlRight')
+      setCrtlPressed(true);
+
+    if (crtlPressed && event.code === 'KeyX') resetFields();
+
+    if (event.code === 'Backspace' || event.code === 'Delete') resetFields();
+  }
+
+  const handleCreateOrder: SubmitHandler<IPaymentDTO> = (values) => {
+    console.log(values);
+  };
 
   return (
     <CheckoutContainer onSubmit={handleSubmit(handleCreateOrder)}>
@@ -72,12 +117,18 @@ function Checkout() {
           </header>
           <div className="addressForm">
             <RowContainer>
-              <Input
+              <InputWithCallback
+                mask={inputMask.cep}
                 remWidth={12.5}
                 placeholder="CEP"
                 required
-                // error={errors.payment?.address?.cep}
+                error={errors.address?.cep}
                 {...register('address.cep')}
+                callback={(cep) => {
+                  handleGetAddress(cep);
+                }}
+                lengthUnmaskedValueConditionToCallback={8}
+                onKeyDown={handleResetForm}
               />
             </RowContainer>
             <RowContainer>
@@ -85,17 +136,18 @@ function Checkout() {
                 remWidth={35}
                 placeholder="Rua"
                 required
-                // error={errors.payment?.address?.street}
+                error={errors.address?.street}
                 {...register('address.street')}
               />
             </RowContainer>
             <RowContainer>
               <Input
+                id="numberField"
                 remWidth={12.5}
                 type="text"
                 placeholder="Número"
                 required
-                // error={errors.payment?.address?.number}
+                error={errors.address?.number}
                 {...register('address.number')}
               />
               <Input
@@ -103,7 +155,7 @@ function Checkout() {
                 type="text"
                 placeholder="Complemento"
                 optional
-                // // error={errors.payment?.address?.complement}
+                error={errors.address?.complement}
                 {...register('address.complement')}
               />
             </RowContainer>
@@ -113,15 +165,15 @@ function Checkout() {
                 type="text"
                 placeholder="Bairro"
                 required
-                // // error={errors.payment?.address?.district}
-                {...register('address.district')}
+                error={errors.address?.neighborhood}
+                {...register('address.neighborhood')}
               />
               <Input
                 remWidth={17.25}
                 type="text"
                 placeholder="Cidade"
                 required
-                // // error={errors.payment?.address?.city}
+                error={errors.address?.city}
                 {...register('address.city')}
               />
               <Input
@@ -129,7 +181,7 @@ function Checkout() {
                 type="text"
                 placeholder="UF"
                 required
-                // // error={errors.payment?.address?.state}
+                error={errors.address?.state}
                 {...register('address.state')}
               />
             </RowContainer>
