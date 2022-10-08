@@ -18,9 +18,10 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
-    "dev:ignite-feed": "turbo run dev --filter=@reactjs/ignite-feed",
-    "dev:ignite-feed-ts": "turbo run dev --filter=@reactjs/ignite-feed-ts",
-    "dev:ignite-timer": "turbo run dev --filter=@reactjs/ignite-timer",
+    "dev:feed": "turbo run dev --filter=@reactjs/feed",
+    "dev:feed-ts": "turbo run dev --filter=@reactjs/feed-ts",
+    "dev:timer": "turbo run dev --filter=@reactjs/timer",
+    "dev:dt-money": "turbo run dev --filter=@reactjs/dt-money",
     "dev:todo-list": "turbo run dev --filter=@challenges-reactjs/todo-list",
     "dev:coffee-delivery": "turbo run dev --filter=@challenges-reactjs/coffee-delivery",
     "lint": "turbo run lint",

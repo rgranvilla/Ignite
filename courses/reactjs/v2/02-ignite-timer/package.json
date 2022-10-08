@@ -1,5 +1,5 @@
 {
-  "name": "@reactjs/ignite-timer",
+  "name": "@reactjs/timer",
   "version": "1.0.0",
   "main": "./src/main.tsx",
   "type": "module",

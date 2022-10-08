@@ -6,7 +6,7 @@
   "author": "Ricardo Granvilla Oliveira (rgranvilla@gmail.com)",
   "private": true,
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "vite --port 3100",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

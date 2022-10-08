@@ -1,10 +1,11 @@
 {
-  "name": "@reactjs/ignite-feed",
-  "private": true,
+  "name": "@reactjs/feed",
   "version": "1.0.0",
+  "main": "./src/main.tsx",
   "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview"
   },
