@@ -1,6 +1,9 @@
-import { IOrderStateDTO } from './reducer';
+import { IProductDTO } from '../database/db-coffee';
+import { ICartProductDTO, IOrderStateDTO } from './reducer';
 
 export enum ActionTypes {
+  LOAD_PRODUCTS_LIST = 'LOAD_PRODUCTS_LIST',
+  ADD_CART_PRODUCT = 'ADD_CART_PRODUCT',
   ADD_AMOUNT_ITEM = 'ADD_AMOUNT_ITEM',
   DECREASE_AMOUNT_ITEM = 'DECREASE_AMOUNT_ITEM',
   DELETE_ITEM = 'DELETE_ITEM',
@@ -8,7 +11,25 @@ export enum ActionTypes {
   UPDATE_TOTAL_CART = 'UPDATE_TOTAL_CART',
 }
 
-export function addAmountItemAction(id: string) {
+export function loadProductListAction(products: IProductDTO[]) {
+  return {
+    type: ActionTypes.LOAD_PRODUCTS_LIST,
+    payload: {
+      products,
+    },
+  };
+}
+
+export function addCartProductAction(product: ICartProductDTO) {
+  return {
+    type: ActionTypes.ADD_CART_PRODUCT,
+    payload: {
+      product,
+    },
+  };
+}
+
+export function incrementAmountItemAction(id: string) {
   return {
     type: ActionTypes.ADD_AMOUNT_ITEM,
     payload: {
@@ -17,7 +38,7 @@ export function addAmountItemAction(id: string) {
   };
 }
 
-export function decreaseAmountItemAction(id: string) {
+export function decrementCartProductAction(id: string) {
   return {
     type: ActionTypes.DECREASE_AMOUNT_ITEM,
     payload: {
@@ -26,7 +47,7 @@ export function decreaseAmountItemAction(id: string) {
   };
 }
 
-export function deleteItemFromCartAction(id: string) {
+export function deleteCartProductAction(id: string) {
   return {
     type: ActionTypes.DELETE_ITEM,
     payload: {
@@ -42,7 +63,7 @@ export function saveOrderAction(newOrder: IOrderStateDTO) {
   };
 }
 
-export function totalCartAutoUpdateAction(totalCart: number) {
+export function cartTotalAutoUpdateAction(totalCart: number) {
   return {
     type: ActionTypes.UPDATE_TOTAL_CART,
     payload: {

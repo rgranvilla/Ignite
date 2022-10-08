@@ -1,4 +1,3 @@
-import { ShoppingCart } from 'phosphor-react';
 import {
   BuyBarContainer,
   BuyControllsContainer,
@@ -14,31 +13,19 @@ import {
 import { SelectAmount } from '../SelectAmount';
 import { CartButton } from '../CartButton';
 import { IProductsDTO } from '../../database/db-coffee';
-import { useState } from 'react';
 import { formatPrice } from '../../utils/formatPrice';
 
 interface ProductCardProps {
   product: IProductsDTO;
+  amount: number;
+  onIncrement: () => void;
+  onDecrement: () => void;
 }
 
-function ProductCard({ product }: ProductCardProps) {
-  const [amount, setAmount] = useState<number>(0);
-
-  const { image, type, title, description, price } = product;
+function ProductCard({ product, amount, onDecrement, onIncrement }: ProductCardProps) {
+  const { id, image, type, title, description, price } = product;
 
   const formatedPrice = formatPrice.format(price / 100);
-
-  function handleAdd() {
-    setAmount((state) => {
-      return state + 1;
-    });
-  }
-
-  function handleDecrease() {
-    setAmount((state) => {
-      return state - 1;
-    });
-  }
 
   return (
     <ProductCardContainer>
@@ -58,7 +45,11 @@ function ProductCard({ product }: ProductCardProps) {
             <span>R$</span> {formatedPrice}
           </BuyPriceContainer>
           <BuyControllsContainer>
-            <SelectAmount amount={amount} onAdd={handleAdd} onDecrease={handleDecrease} />
+            <SelectAmount
+              amount={amount}
+              onIncrement={onIncrement}
+              onDecrement={onDecrement}
+            />
             <CartButton />
           </BuyControllsContainer>
         </BuyBarContainer>

@@ -4,16 +4,16 @@ import { SelectAmountContainer } from './styles';
 
 interface SelectAmountProps {
   amount: number;
-  onAdd: () => void;
-  onDecrease: () => void;
+  onIncrement: () => void;
+  onDecrement: () => void;
 }
 
-function SelectAmount({ amount = 0, onAdd, onDecrease }: SelectAmountProps) {
+function SelectAmount({ amount = 0, onIncrement, onDecrement }: SelectAmountProps) {
   return (
     <SelectAmountContainer>
-      <Minus onClick={onDecrease} />
+      <Minus onClick={onDecrement} />
       <span>{amount}</span>
-      <Plus onClick={onAdd} />
+      <Plus onClick={onIncrement} />
     </SelectAmountContainer>
   );
 }

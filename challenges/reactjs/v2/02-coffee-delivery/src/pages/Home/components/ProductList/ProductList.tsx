@@ -1,14 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ProductCard } from '../../../../components/ProductCard';
-import { coffees, IProductsDTO } from '../../../../database/db-coffee';
+import { OrderContext } from '../../../../contexts/OrderContext';
 import { CardsContainer, ProductListContainer, TitleWrapper } from './styles';
 
 function ProductList() {
-  const [products, setProducts] = useState<IProductsDTO[]>([]);
-
-  useEffect(() => {
-    setProducts(coffees);
-  }, []);
+  const { incrementCartProduct, decrementCartProduct, getProductAmount, products } =
+    useContext(OrderContext);
 
   return (
     <ProductListContainer>
@@ -17,7 +14,15 @@ function ProductList() {
       <CardsContainer>
         {products.map(
           (product) =>
-            product.available && <ProductCard key={product.id} product={product} />,
+            product.available && (
+              <ProductCard
+                key={product.id}
+                product={product}
+                amount={getProductAmount(product.id)}
+                onIncrement={() => incrementCartProduct(product)}
+                onDecrement={() => decrementCartProduct(product)}
+              />
+            ),
         )}
       </CardsContainer>
     </ProductListContainer>

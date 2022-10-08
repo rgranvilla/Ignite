@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import { OrderContext } from '../../contexts/OrderContext';
+import { IProductDTO } from '../../database/db-coffee';
 import { formatPrice } from '../../utils/formatPrice';
 import { CartProductCard } from '../CartProductCard';
 
@@ -19,30 +20,43 @@ interface CartProps {
 }
 
 function Cart({ onSubmit }: CartProps) {
-  const { cart, totalCart, addCartItemAmount, decreaseCartItemAmount, removeCartItem } =
-    useContext(OrderContext);
-  const total = formatPrice.format(totalCart / 100);
+  const {
+    products,
+    cart,
+    deliveryPrice,
+    cartTotal,
+    incrementCartProduct,
+    decrementCartProduct,
+    deleteCartProduct,
+  } = useContext(OrderContext);
+  const formatedDeliveryPrice = formatPrice.format(deliveryPrice / 100);
+  const formatedCartTotal = formatPrice.format(cartTotal / 100);
+  const total = formatPrice.format((deliveryPrice + cartTotal) / 100);
   return (
     <CartContainer>
       <TitleWrapper>Cafés selecionados</TitleWrapper>
       <CartCardContainer>
-        {cart.map((item) => (
-          <CartProductCard
-            key={item.id}
-            data={item}
-            onAdd={() => addCartItemAmount(item.id)}
-            onDecreased={() => decreaseCartItemAmount(item.id)}
-            onDelete={() => removeCartItem(item.id)}
-          />
-        ))}
+        {cart.map((item) => {
+          const product = products.find(({ id }) => item.productId === id) as IProductDTO;
+
+          return (
+            <CartProductCard
+              key={item.id}
+              data={item}
+              onIncrement={() => incrementCartProduct(product)}
+              onDecrement={() => decrementCartProduct(product)}
+              onDelete={() => deleteCartProduct(item.id)}
+            />
+          );
+        })}
         <CartResumeContainer>
           <CartResumeItem>
             <span>Total dos itens</span>
-            <p>R$ 29,70</p>
+            <p>R$ {formatedCartTotal}</p>
           </CartResumeItem>
           <CartResumeItem>
             <span>Entrega</span>
-            <p>R$ 3,50</p>
+            <p>R$ {formatedDeliveryPrice}</p>
           </CartResumeItem>
           <CartResumeTotal>
             <span>Total</span>

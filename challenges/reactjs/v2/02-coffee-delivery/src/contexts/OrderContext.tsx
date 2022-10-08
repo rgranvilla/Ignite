@@ -1,27 +1,35 @@
-import { createContext, ReactNode, useEffect, useReducer, useState } from 'react';
-import { data } from '../database/db-coffee';
+import { createContext, ReactNode, useEffect, useReducer } from 'react';
+import { v4 as uuidV4 } from 'uuid';
+
+import { IProductDTO } from '../database/db-coffee';
 import {
-  addAmountItemAction,
-  decreaseAmountItemAction,
-  deleteItemFromCartAction,
+  addCartProductAction,
+  cartTotalAutoUpdateAction,
+  decrementCartProductAction,
+  deleteCartProductAction,
+  incrementAmountItemAction,
+  loadProductListAction,
   saveOrderAction,
-  totalCartAutoUpdateAction,
 } from '../reducers/actions';
 import {
-  ICartItemDTO,
+  ICartProductDTO,
   cartReducer,
   IPaymentDTO,
   IOrderStateDTO,
 } from '../reducers/reducer';
 
 interface OrderContextType {
-  cart: ICartItemDTO[];
+  products: IProductDTO[];
+  cart: ICartProductDTO[];
   payment: IPaymentDTO;
-  totalCart: number;
-  addCartItemAmount: (id: string) => void;
-  decreaseCartItemAmount: (id: string) => void;
-  removeCartItem: (id: string) => void;
+  deliveryPrice: number;
+  cartTotal: number;
+  loadProductsList: (products: IProductDTO[]) => void;
+  incrementCartProduct: (product: IProductDTO) => void;
+  decrementCartProduct: (product: IProductDTO) => void;
+  deleteCartProduct: (id: string) => void;
   saveNewOrder: (paymentData: IPaymentDTO) => void;
+  getProductAmount: (id: string) => number;
   getOrderState: () => IOrderStateDTO;
 }
 
@@ -35,6 +43,8 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
   const [orderState, dispatch] = useReducer(
     cartReducer,
     {
+      orderId: '',
+      products: [],
       cart: [],
       payment: {
         address: {
@@ -48,7 +58,8 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
         },
         paymentMethod: '',
       },
-      totalCart: 0,
+      deliveryPrice: 350,
+      cartTotal: 0,
     },
     () => {
       const storedStateAsJSON = localStorage.getItem(
@@ -59,61 +70,91 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
         return JSON.parse(storedStateAsJSON);
       } else {
         return {
-          cart: [...data],
+          orderId: uuidV4(),
+          products: [],
+          cart: [],
           payment: {},
-          totalCart: 0,
+          deliveryPrice: 350,
+          cartTotal: 0,
         };
       }
     },
   );
 
-  const { cart, payment } = orderState;
-  const [totalCart, setTotalCart] = useState<number>(0);
+  const { orderId, cart, payment, products, deliveryPrice, cartTotal } = orderState;
 
-  useEffect(() => {
-    const stateJSON = JSON.stringify(orderState);
-
-    localStorage.setItem('@ignite-challenge-coffee-delivery:cart-state-1.0.0', stateJSON);
-  }, [orderState]);
-
-  function saveOrderInLocalStorage() {
-    const stateJSON = JSON.stringify(orderState);
-    localStorage.setItem('@ignite-challenge-coffee-delivery:cart-state-1.0.0', stateJSON);
-  }
-
-  function recalculateTotalCart() {
-    const newTotalCart = cart
+  function recalculateCartTotal() {
+    const newCartTotal = cart
       .map(({ price, amount }) => amount * price)
       .reduce((previusValues, currentValues) => previusValues + currentValues, 0);
-    setTotalCart(newTotalCart);
-    dispatch(totalCartAutoUpdateAction(newTotalCart));
+
+    dispatch(cartTotalAutoUpdateAction(newCartTotal));
   }
 
+  //autosave data on localStorage
   useEffect(() => {
-    recalculateTotalCart();
-  }, [cart]);
+    recalculateCartTotal();
+    const stateJSON = JSON.stringify(orderState);
+    localStorage.setItem('@ignite-challenge-coffee-delivery:cart-state-1.0.0', stateJSON);
+  }, [cart, payment, products, cartTotal]);
 
-  function addCartItemAmount(id: string) {
-    dispatch(addAmountItemAction(id));
+  function loadProductsList(products: IProductDTO[]) {
+    dispatch(loadProductListAction(products));
+    console.log('[LOAD-PRODUCTS]');
   }
 
-  function decreaseCartItemAmount(id: string) {
-    dispatch(decreaseAmountItemAction(id));
+  function incrementCartProduct(product: IProductDTO) {
+    const productOnCart = orderState.cart.find(
+      ({ productId }) => productId === product.id,
+    );
+
+    if (!!productOnCart) {
+      dispatch(incrementAmountItemAction(product.id));
+    } else {
+      const newProduct: ICartProductDTO = {
+        id: uuidV4(),
+        amount: 1,
+        name: product.title,
+        price: product.price,
+        image: product.image,
+        productId: product.id,
+      };
+
+      dispatch(addCartProductAction(newProduct));
+    }
   }
 
-  function removeCartItem(id: string) {
-    dispatch(deleteItemFromCartAction(id));
+  function decrementCartProduct(product: IProductDTO) {
+    const productOnCart = orderState.cart.find(
+      ({ productId }) => productId === product.id,
+    );
+
+    if (!!productOnCart && productOnCart.amount > 0) {
+      dispatch(decrementCartProductAction(product.id));
+    }
   }
+
+  function deleteCartProduct(id: string) {
+    dispatch(deleteCartProductAction(id));
+  }
+
+  /*||^^^^^^^^^^^^^^^||          
+  /*||   Revisado    ||
+  /*********************/
 
   function saveNewOrder(paymentData: IPaymentDTO) {
     const newOrder: IOrderStateDTO = {
-      cart: orderState.cart,
+      ...orderState,
       payment: paymentData,
-      totalCart,
     };
 
     dispatch(saveOrderAction(newOrder));
-    saveOrderInLocalStorage();
+  }
+
+  function getProductAmount(productId: string) {
+    const product = orderState.cart.find((item) => item.productId === productId);
+    const amount = product?.amount || 0;
+    return amount;
   }
 
   function getOrderState() {
@@ -123,13 +164,17 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
   return (
     <OrderContext.Provider
       value={{
+        products,
         cart,
         payment,
-        totalCart,
-        addCartItemAmount,
-        decreaseCartItemAmount,
-        removeCartItem,
+        deliveryPrice,
+        cartTotal,
+        loadProductsList,
+        incrementCartProduct,
+        decrementCartProduct,
+        deleteCartProduct,
         saveNewOrder,
+        getProductAmount,
         getOrderState,
       }}
     >

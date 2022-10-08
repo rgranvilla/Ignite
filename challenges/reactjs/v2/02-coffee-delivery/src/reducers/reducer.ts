@@ -1,10 +1,11 @@
-import { Action } from '@remix-run/router';
 import { produce } from 'immer';
+import { IProductDTO } from '../database/db-coffee';
 
 import { ActionTypes } from './actions';
 
-export interface ICartItemDTO {
+export interface ICartProductDTO {
   id: string;
+  productId: string;
   name: string;
   image: string;
   price: number;
@@ -27,24 +28,40 @@ export interface IPaymentDTO {
 }
 
 export interface IOrderStateDTO {
-  cart: ICartItemDTO[];
+  orderId: string;
+  products: IProductDTO[];
+  cart: ICartProductDTO[];
   payment: IPaymentDTO;
-  totalCart: number;
+  deliveryPrice: number;
+  cartTotal: number;
 }
 
 export function cartReducer(state: IOrderStateDTO, action: any) {
   switch (action.type) {
+    case ActionTypes.LOAD_PRODUCTS_LIST: {
+      return produce(state, (draft) => {
+        draft.products = [...action.payload.products];
+      });
+    }
+
+    case ActionTypes.ADD_CART_PRODUCT: {
+      return produce(state, (darft) => {
+        darft.cart.push(action.payload.product);
+      });
+    }
+
     case ActionTypes.ADD_AMOUNT_ITEM: {
       const cartAddItemIndex = state.cart.findIndex((item) => {
-        return item.id === action.payload.id;
+        return item.productId === action.payload.id;
       });
+
       return produce(state, (draft) => {
         draft.cart[cartAddItemIndex].amount = state.cart[cartAddItemIndex].amount + 1;
       });
     }
     case ActionTypes.DECREASE_AMOUNT_ITEM: {
       const cartDecreaseItemIndex = state.cart.findIndex((item) => {
-        return item.id === action.payload.id;
+        return item.productId === action.payload.id;
       });
       return produce(state, (draft) => {
         draft.cart[cartDecreaseItemIndex].amount =
@@ -67,7 +84,7 @@ export function cartReducer(state: IOrderStateDTO, action: any) {
 
     case ActionTypes.UPDATE_TOTAL_CART: {
       return produce(state, (draft) => {
-        draft.totalCart = action.payload.totalCart;
+        draft.cartTotal = action.payload.totalCart;
       });
     }
 

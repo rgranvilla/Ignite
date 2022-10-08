@@ -1,4 +1,4 @@
-import { CartItemDTO } from '../../contexts/Cart/reducers/reducer';
+import { ICartProductDTO } from '../../reducers/reducer';
 import { formatPrice } from '../../utils/formatPrice';
 import { CartRemoveButton } from '../CartRemoveButton';
 
@@ -15,13 +15,18 @@ import {
 } from './styles';
 
 interface CartProductCardProps {
-  data: CartItemDTO;
-  onAdd: () => void;
-  onDecreased: () => void;
+  data: ICartProductDTO;
+  onIncrement: () => void;
+  onDecrement: () => void;
   onDelete: () => void;
 }
 
-function CartProductCard({ data, onAdd, onDecreased, onDelete }: CartProductCardProps) {
+function CartProductCard({
+  data,
+  onIncrement,
+  onDecrement,
+  onDelete,
+}: CartProductCardProps) {
   const { name, amount, price, image } = data;
   const subtotal = formatPrice.format((price * amount) / 100);
 
@@ -33,7 +38,11 @@ function CartProductCard({ data, onAdd, onDecreased, onDelete }: CartProductCard
           <DescriptionRightContent>
             <DescriptionTitleContent>{name}</DescriptionTitleContent>
             <DescriptionControllsButtons>
-              <SelectAmount amount={amount} onAdd={onAdd} onDecrease={onDecreased} />
+              <SelectAmount
+                amount={amount}
+                onIncrement={onIncrement}
+                onDecrement={onDecrement}
+              />
               <CartRemoveButton onClick={onDelete} />
             </DescriptionControllsButtons>
           </DescriptionRightContent>
