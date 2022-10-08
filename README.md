@@ -10,11 +10,9 @@
 
 <p>&nbsp;</p>
 
-<div>
-  <img src={./public/cover-ignite-feed.svg} title="Ignite Feed"/>
-</div>
-
-[![Ignite-Feed](./assets/cover-ignite-feed.svg)](https://www.rocketseat.com.br/)
+|                                                                                                                                               |                                                                                                                                                |                                                                                                                                               |                                                                                                                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![Ignite-Feed](./assets/cover-ignite-feed-300px.png)](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/01-ignite-feed-ts) | [![Todo-List](./assets/cover-ignite-todo-list-300px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/01-todo-list) | [![Ignite-Timer](./assets/cover-ignite-timer-300px.png)](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/02-ignite-timer) | [![Ignite-Coffee-Delivery](./assets/cover-ignite-coffee-delivery-300px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery) |
 
 ## 💻 **Sobre o curso**
 
