@@ -12,11 +12,11 @@ import {
 
 import { SelectAmount } from '../SelectAmount';
 import { CartButton } from '../CartButton';
-import { IProductsDTO } from '../../database/db-coffee';
+import { IProductDTO } from '../../database/db-coffee';
 import { formatPrice } from '../../utils/formatPrice';
 
 interface ProductCardProps {
-  product: IProductsDTO;
+  product: IProductDTO;
   amount: number;
   onIncrement: () => void;
   onDecrement: () => void;
@@ -32,7 +32,7 @@ function ProductCard({ product, amount, onDecrement, onIncrement }: ProductCardP
       <img src={image} />
       <ContentWrapper>
         <ChipContainer>
-          {type.map((chip) => (
+          {type.map((chip: string) => (
             <ChipWrapper key={chip}>
               <span>{chip.toUpperCase()}</span>
             </ChipWrapper>
