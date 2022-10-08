@@ -24,7 +24,7 @@ export const CartButtonContainer = styled.button<CartButtonProps>`
 
   transition: background-color 0.2s;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: ${(props) =>
       shade(
         0.05,
@@ -32,6 +32,10 @@ export const CartButtonContainer = styled.button<CartButtonProps>`
           ? props.theme['purple']
           : props.theme['yellow-light'],
       )};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 `;
 

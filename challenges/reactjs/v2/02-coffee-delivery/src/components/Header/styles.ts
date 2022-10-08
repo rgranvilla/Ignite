@@ -10,4 +10,13 @@ export const HeaderContainer = styled.header`
     display: flex;
     gap: 0.75rem;
   }
+
+  img {
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  img:hover {
+    opacity: 0.7;
+  }
 `;
