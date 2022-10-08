@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useReducer } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 
-import { IProductDTO } from '../database/db-coffee';
+import { coffees, IProductDTO } from '../database/db-coffee';
 import {
   addCartProductAction,
   cartTotalAutoUpdateAction,
@@ -40,6 +40,7 @@ interface OrderContextProvidersProps {
 }
 
 export function OrderContextProvider({ children }: OrderContextProvidersProps) {
+  const loadedProducts = coffees;
   const [orderState, dispatch] = useReducer(
     cartReducer,
     {
@@ -71,7 +72,7 @@ export function OrderContextProvider({ children }: OrderContextProvidersProps) {
       } else {
         return {
           orderId: uuidV4(),
-          products: [],
+          products: [...loadedProducts],
           cart: [],
           payment: {},
           deliveryPrice: 350,
