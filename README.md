@@ -108,7 +108,7 @@ courses/reactjs/v2/
 
 challenges/reactjs/v2/
 
--[01-todo-list](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/01-todo-list)
+- [01-todo-list](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/01-todo-list)
 
   <p>&nbsp;</p>
 
@@ -128,7 +128,7 @@ courses/reactjs/v2/
 
 challenges/reactjs/v2
 
--[02-coffee-delivery](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery)
+- [02-coffee-delivery](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery)
 
 🚧 Trilha React Js 🚀 em construção... 🚧
 
