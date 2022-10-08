@@ -14,6 +14,7 @@
 [![Todo-List](./assets/cover-ignite-todo-list-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/01-todo-list)
 [![Ignite-Timer](./assets/cover-ignite-timer-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/02-ignite-timer)
 [![Ignite-Coffee-Delivery](./assets/cover-ignite-coffee-delivery-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery)
+[![Ignite-DT-Money](./assets/cover-ignite-dt-money-250px.png)]()
 
 ## 💻 **Sobre o curso**
 
@@ -134,6 +135,28 @@ courses/reactjs/v2/
 challenges/reactjs/v2
 
 - [02-coffee-delivery](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery)
+
+🚧 Trilha React Js 🚀 em construção... 🚧
+
+<p>&nbsp;</p>
+
+### Projeto 03 - Consumo de API e performance no ReactJS
+
+Nesse módulo construiremos uma aplicação front-end web completa, conectando a uma API e veremos como performar aplicações com o React entendendo como funcionam os algoritmos internos da biblioteca e todo o fluxo de renderização de componentes.
+
+  <p>&nbsp;</p>
+
+Packages:
+
+  <p>&nbsp;</p>
+
+courses/reactjs/v2/
+
+- [03-ignite-dt-money]()
+
+challenges/reactjs/v2
+
+- [03-github-blog]()
 
 🚧 Trilha React Js 🚀 em construção... 🚧
 
