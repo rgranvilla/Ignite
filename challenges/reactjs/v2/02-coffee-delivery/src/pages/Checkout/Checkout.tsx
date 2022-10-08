@@ -28,6 +28,7 @@ import { InputWithCallback } from '../../components/Input/Input';
 import { brasilApi } from '../../services/brasilApi';
 import { OrderContext } from '../../contexts/OrderContext';
 import { useNavigate } from 'react-router-dom';
+import { AxiosError } from 'axios';
 
 interface IApiAddressDTO {
   cep: string;
@@ -56,7 +57,7 @@ const createAddressFormSchema = yup.object({
 
 function Checkout() {
   const { saveNewOrder } = useContext(OrderContext);
-  const { register, handleSubmit, formState, setValue, resetField } =
+  const { register, handleSubmit, formState, setValue, resetField, setError } =
     useForm<IPaymentDTO>({
       resolver: yupResolver(createAddressFormSchema),
     });
@@ -73,7 +74,8 @@ function Checkout() {
 
       document.getElementById('numberField')?.focus();
     } catch (error) {
-      console.log(error);
+      const { message } = error as AxiosError;
+      console.error(message);
     }
   }
 
