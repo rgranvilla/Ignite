@@ -9,7 +9,11 @@
     <td>
       <img src="../../../../assets/dt-money/cover-dt-money-250px.png" style="width: 250px"/>
     </td>
-    <td>Nesse módulo construiremos uma aplicação front-end web completa, conectando a uma API e veremos como performar aplicações com o React entendendo como funcionam os algoritmos internos da biblioteca e todo o fluxo de renderização de componentes.</td>
+    <td>
+    <p style="maxWidth: 600px">
+    Nesse módulo construiremos uma aplicação front-end web completa, conectando a uma API e veremos como performar aplicações com o React entendendo como funcionam os algoritmos internos da biblioteca e todo o fluxo de renderização de componentes.
+    </p>
+    </td>
 
  </tr>
 </table>
