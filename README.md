@@ -10,6 +10,12 @@
 
 <p>&nbsp;</p>
 
+<div>
+  <img src={./public/cover-ignite-feed.svg} title="Ignite Feed"/>
+</div>
+
+[![Ignite-Feed](./assets/cover-ignite-feed.svg)](https://www.rocketseat.com.br/)
+
 ## 💻 **Sobre o curso**
 
 <br>
