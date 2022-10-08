@@ -152,11 +152,7 @@ Packages:
 
 courses/reactjs/v2/
 
-- [03-ignite-dt-money]()
-
-challenges/reactjs/v2
-
-- [03-github-blog]()
+- [03-ignite-dt-money](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/03-ignite-dt-money#readme)
 
 🚧 Trilha React Js 🚀 em construção... 🚧
 
