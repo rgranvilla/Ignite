@@ -7,7 +7,7 @@
 <table border="0">
  <tr>
     <td>
-      <img src="../../../../assets/dt-money/cover-dt-money-250px.png" style="width: 250px"/>
+      <img src="../../../../assets/dt-money/cover-dt-money-250px.png" style="min-width: 250px"/>
     </td>
     <td>
     <p style="max-width: 600px">
