@@ -62,14 +62,25 @@ Em resumo, o objetivo do Ignite é desenvolver habilidades que vão acelerar sua
 
 - Outras Ferramentas:
 
-  - [Date-fns](https://date-fns.org/v2.21.1/docs/format)
+  - [Axios](https://axios-http.com/)
+  - [Commitizen](https://commitizen-tools.github.io/commitizen/)
+  - [Date-fns](https://date-fns.org/)
   - [EsLint](https://eslint.org/)
-  - [Prettier](https://prettier.io/)
-  - [Commitizen](https://github.com/commitizen/cz-cli#readme)
   - [Husky](https://typicode.github.io/husky/#/)
+  - [Immer](https://immerjs.github.io/immer/)
+  - [Lint-Staged](https://github.com/okonet/lint-staged#readme)
+  - [Phosphor-React](https://phosphoricons.com/)
+  - [Polished](https://polished.js.org/)
+  - [Prettier](https://prettier.io/)
+  - [React-Hook-Form](https://react-hook-form.com/)
+  - [React-IMask](https://imask.js.org/)
+  - [React-Router-Dom](https://github.com/remix-run/react-router/blob/main/docs/start/tutorial.md)
+  - [Styled-Components](https://styled-components.com/)
+  - [Turborepo](https://turborepo.org/)
   - [Uuid](https://github.com/uuidjs/uuid#readme)
   - [ViteJs](https://vitejs.dev/)
-  - [Turborepo](https://turborepo.org/)
+  - [Yup](https://github.com/jquense/yup#readme)
+  - [Zod](https://zod.dev/)
     <p>&nbsp;</p>
 
 - Rendering Patterns:
@@ -87,13 +98,37 @@ Nesse módulo, criaremos uma aplicação React utilizando o Vite e aprenderemos 
   <p>&nbsp;</p>
 
 Packages:
-<br>
+
+  <p>&nbsp;</p>
+
 courses/reactjs/v2/
 
 - [01-ignite-feed](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/01-ignite-feed)
 - [01-ignite-feed-ts](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/01-ignite-feed-ts)
 
+challenges/reactjs/v2/
+
+-[01-todo-list](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/01-todo-list)
+
   <p>&nbsp;</p>
+
+### Projeto 02 - Criando SPAs com ReactJS
+
+Nesse módulo iremos construir uma aplicação completa com roteamento e diversos conceitos importantes do ecossistema React como ContextAPI, useReducer, immer e muito mais.
+
+  <p>&nbsp;</p>
+
+Packages:
+
+  <p>&nbsp;</p>
+
+courses/reactjs/v2/
+
+- [02-ignite-timer](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/02-ignite-timer)
+
+challenges/reactjs/v2
+
+-[02-coffee-delivery](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery)
 
 🚧 Trilha React Js 🚀 em construção... 🚧
 
