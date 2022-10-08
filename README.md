@@ -10,10 +10,10 @@
 
 <p>&nbsp;</p>
 
-[![Ignite-Feed](./assets/cover-ignite-feed-300px.png)](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/01-ignite-feed-ts)
-[![Todo-List](./assets/cover-ignite-todo-list-300px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/01-todo-list)
-[![Ignite-Timer](./assets/cover-ignite-timer-300px.png)](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/02-ignite-timer)
-[![Ignite-Coffee-Delivery](./assets/cover-ignite-coffee-delivery-300px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery)
+[![Ignite-Feed](./assets/cover-ignite-feed-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/01-ignite-feed-ts)
+[![Todo-List](./assets/cover-ignite-todo-list-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/01-todo-list)
+[![Ignite-Timer](./assets/cover-ignite-timer-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/02-ignite-timer)
+[![Ignite-Coffee-Delivery](./assets/cover-ignite-coffee-delivery-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery)
 
 ## 💻 **Sobre o curso**
 
