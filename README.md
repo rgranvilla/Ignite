@@ -14,7 +14,7 @@
 [![Todo-List](./assets/cover-ignite-todo-list-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/01-todo-list)
 [![Ignite-Timer](./assets/cover-ignite-timer-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/courses/reactjs/v2/02-ignite-timer)
 [![Ignite-Coffee-Delivery](./assets/cover-ignite-coffee-delivery-250px.png)](https://github.com/rgranvilla/Ignite/tree/master/challenges/reactjs/v2/02-coffee-delivery)
-[![Ignite-DT-Money](./assets/cover-ignite-dt-money-250px.png)]()
+[![Ignite-DT-Money](./assets/dt-money/cover-dt-money-250px.png)]()
 
 ## 💻 **Sobre o curso**
 
