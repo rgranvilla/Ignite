@@ -1,4 +1,4 @@
-[![Banner Ignite](./assets/banner-ignite.png)](https://home.devtrails.com.br/)
+[![Banner Ignite](./assets/banners/banner-ignite.png)](https://home.devtrails.com.br/)
 
 <h3 align="center">
 🚧 Repositório do Curso Ignite Rocketseat 🚀 em construção... 🚧

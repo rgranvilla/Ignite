@@ -2,9 +2,24 @@
 
 # Projeto 03 - Consumo de API e performance no ReactJS
 
-|                                                                                            |                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src="../../../../assets/dt-money/cover-dt-money-250px.png" style="min-width: 250px"/> | Nesse módulo construiremos uma aplicação front-end web completa, conectando a uma API e veremos como performar aplicações com o React entendendo como funcionam os algoritmos internos da biblioteca e todo o fluxo de renderização de componentes. |
+<br>
+
+<table border="0">
+ <tr>
+    <td style="min-width: 250px">
+      <img src="../../../../assets/dt-money/cover-dt-money-250px.png" style="min-width: 250px"/>
+    </td>
+    <td style="max-width: 600px">
+    <p style="max-width: 600px">
+    Nesse módulo construiremos uma aplicação front-end web completa, conectando a uma API e veremos como performar aplicações com o React entendendo como funcionam os algoritmos internos da biblioteca e todo o fluxo de renderização de componentes.
+    </p>
+    </td>
+
+ </tr>
+</table>
+
+<br>
+<br>s
 
 ## 🎨 **Layout**
 
