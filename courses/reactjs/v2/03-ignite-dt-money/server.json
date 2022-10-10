@@ -6,7 +6,7 @@
       "type": "income",
       "category": "Venda",
       "price": 14000,
-      "createAt": "2022-10-10T17:24:27.042Z"
+      "createdAt": "2022-10-10T17:24:27.042Z"
     },
     {
       "id": 2,
@@ -14,7 +14,39 @@
       "type": "outcome",
       "category": "Alimentação",
       "price": 50,
-      "createAt": "2022-10-10T17:18:27.042Z"
+      "createdAt": "2022-10-10T17:18:27.042Z"
+    },
+    {
+      "description": "Desenvolvimento de app",
+      "price": 10000,
+      "category": "Venda",
+      "type": "income",
+      "createdAt": "2022-10-10T20:29:07.328Z",
+      "id": 3
+    },
+    {
+      "description": "teste",
+      "price": 10,
+      "category": "teste",
+      "type": "outcome",
+      "createdAt": "2022-10-10T20:31:13.500Z",
+      "id": 4
+    },
+    {
+      "description": "Teste",
+      "price": 50,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2022-10-10T20:35:49.152Z",
+      "id": 5
+    },
+    {
+      "description": "Aquecedor",
+      "price": 1200,
+      "category": "Conforto",
+      "type": "outcome",
+      "createdAt": "2022-10-10T20:45:38.015Z",
+      "id": 6
     }
   ]
 }

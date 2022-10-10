@@ -22,7 +22,7 @@ function Transactions() {
         <TransactionsTable>
           <tbody>
             {transactions.map(
-              ({ id, type, description, category, price, createAt }) => (
+              ({ id, type, description, category, price, createdAt }) => (
                 <tr key={id}>
                   <td width="50%">{description}</td>
                   <td>
@@ -32,7 +32,7 @@ function Transactions() {
                     </PriceHighligh>
                   </td>
                   <td>{category}</td>
-                  <td>{dateFormatter.format(new Date(createAt))}</td>
+                  <td>{dateFormatter.format(new Date(createdAt))}</td>
                 </tr>
               )
             )}
