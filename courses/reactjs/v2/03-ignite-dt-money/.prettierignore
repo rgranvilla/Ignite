@@ -1,7 +1,0 @@
-# Ignore artifacts:
-build
-coverage
-yarn.lock
-*.cjs
-*.json
-vite.config.ts

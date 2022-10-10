@@ -832,7 +832,7 @@
   resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.0.1.tgz#88d7ac31811ab0cef14aaaeae2a0474923b278bc"
   integrity sha512-eBV5rvW4dRFOU1eajN7FmYxjAIVz/mRHgUE9En9mBn6m3mulK3WTR5C3iQhL9MZ14rWAq+xOlEaCkDiW0/heOg==
 
-"@rocketseat/eslint-config@^1.1.3":
+"@rocketseat/eslint-config@*", "@rocketseat/eslint-config@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@rocketseat/eslint-config/-/eslint-config-1.1.3.tgz#7260da6116ca1b20a62a44c7c6b5c48e5ea236f2"
   integrity sha512-IiaAOidc54h7xqQbl8zUCmd5wN9ftK5WmbCS5aBIZUNvaIB5HyJb+NRsmUT7vXPSLkv5uiattWY/1pKV1hi19A==
@@ -5526,6 +5526,11 @@ use-callback-ref@^1.3.0:
   integrity sha512-3FT9PRuRdbB9HfXhEq35u4oZkvpJ5kuYbpqhCfmiZyReuRgpnhDlbr2ZEnnuS0RrJAPn6l23xjFg9kpDM+Ms7w==
   dependencies:
     tslib "^2.0.0"
+
+use-context-selector@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/use-context-selector/-/use-context-selector-1.4.1.tgz#eb96279965846b72915d7f899b8e6ef1d768b0ae"
+  integrity sha512-Io2ArvcRO+6MWIhkdfMFt+WKQX+Vb++W8DS2l03z/Vw/rz3BclKpM0ynr4LYGyU85Eke+Yx5oIhTY++QR0ZDoA==
 
 use-sidecar@^1.1.2:
   version "1.1.2"
