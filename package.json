@@ -26,6 +26,7 @@
     "dev:coffee-delivery": "turbo run dev --filter=@challenges-reactjs/coffee-delivery",
     "dev:server:dt-money": "npx json-server ./courses/reactjs/v2/03-ignite-dt-money/server.json -p 3333 -w -d 500",
     "lint": "turbo run lint",
+    "lint:dt-money": "turbo run lint --filter=@reactjs/dt-money",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
     "commit": "git-cz"

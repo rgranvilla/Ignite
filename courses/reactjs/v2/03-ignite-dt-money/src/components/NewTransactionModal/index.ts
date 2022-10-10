@@ -1,3 +1,3 @@
-import { NewTransactionModal } from "./NewTransactionModal";
+import { NewTransactionModal } from './NewTransactionModal'
 
-export { NewTransactionModal };
+export { NewTransactionModal }
