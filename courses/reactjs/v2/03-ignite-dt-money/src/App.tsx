@@ -1,8 +1,14 @@
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles/global";
+import { defaultTheme } from "./styles/themes/default";
+
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider theme={defaultTheme}>
       <p>Hello Dt Money</p>
-    </div>
+
+      <GlobalStyle />
+    </ThemeProvider>
   );
 }
 
