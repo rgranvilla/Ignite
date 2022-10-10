@@ -23,30 +23,6 @@
       "type": "income",
       "createdAt": "2022-10-10T20:29:07.328Z",
       "id": 3
-    },
-    {
-      "description": "teste",
-      "price": 10,
-      "category": "teste",
-      "type": "outcome",
-      "createdAt": "2022-10-10T20:31:13.500Z",
-      "id": 4
-    },
-    {
-      "description": "Teste",
-      "price": 50,
-      "category": "Alimentação",
-      "type": "outcome",
-      "createdAt": "2022-10-10T20:35:49.152Z",
-      "id": 5
-    },
-    {
-      "description": "Aquecedor",
-      "price": 1200,
-      "category": "Conforto",
-      "type": "outcome",
-      "createdAt": "2022-10-10T20:45:38.015Z",
-      "id": 6
     }
   ]
 }
