@@ -13,6 +13,7 @@
     "challenges/react-native/v1/*",
     "challenges/nodejs/v1/*",
     "challenges/elixir/v1/*",
+    "lab/*",
     "global-configs/*"
   ],
   "scripts": {
@@ -22,6 +23,7 @@
     "dev:feed-ts": "turbo run dev --filter=@reactjs/feed-ts",
     "dev:timer": "turbo run dev --filter=@reactjs/timer",
     "dev:dt-money": "turbo run dev --filter=@reactjs/dt-money",
+    "dev:design-system": "turbo run dev --filter=@lab/design-system",
     "dev:todo-list": "turbo run dev --filter=@challenges-reactjs/todo-list",
     "dev:coffee-delivery": "turbo run dev --filter=@challenges-reactjs/coffee-delivery",
     "dev:server:dt-money": "npx json-server ./courses/reactjs/v2/03-ignite-dt-money/server.json -p 3333 -w -d 500",
