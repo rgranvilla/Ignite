@@ -7,14 +7,10 @@ export interface CheckboxProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Checkbox({ isChecked, ...rest }: CheckboxProps) {
-  function handleChangeCheck(event: CheckboxPrimitive.CheckedState) {
-    isChecked(event === true ? true : false);
-  }
   return (
     <>
       <CheckboxPrimitive.Root
         className="w-6 h-6 p-[2px] bg-gray-800 rounded"
-        onCheckedChange={handleChangeCheck}
         {...rest}
       >
         <CheckboxPrimitive.Indicator asChild>
