@@ -2,34 +2,35 @@ name: Deploy Storybook
 
 on:
   push:
-    branches:
-      - master
+    branches: ["master"]
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   build-and-deploy:
+    name: Build and Deploy
+    timeout-minutes: 15
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - uses: borales/actions-yarn@v3.0.0
         with:
-          cmd: install # will run `yarn install` command
+          fetch-depth: 2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
           node-version: 16
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn
 
       - name: Build Storybook
-        uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: build-storybook # will run `yarn build-storybook` command
+        run: yarn build-storybook
 
       - name: Deploy Storybook
-        uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: deploy-storybook -- --ci --existing-output-dir=storybook-static
+        run: yarn deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN}}
