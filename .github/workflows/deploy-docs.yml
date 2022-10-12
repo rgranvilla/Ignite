@@ -28,7 +28,7 @@ jobs:
         run: yarn
 
       - name: Build Storybook
-        run: yarn build-storybook
+        run: yarn workspace @lab/design-system build-storybook
 
       - name: Deploy Storybook
         run: yarn workspace @lab/design-system deploy-storybook -- --ci --existing-output-dir=storybook-static
