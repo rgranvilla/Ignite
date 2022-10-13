@@ -5,7 +5,6 @@ import { Envelope, Dog, IdentificationCard, Lock } from "phosphor-react";
 import { FormRootProps, Form } from "./Form";
 
 import Logo from "../../assets/react-2.svg";
-import { KeyboardEvent, useState } from "react";
 import { Heading } from "../Heading";
 import { Text } from "../Text";
 
@@ -21,6 +20,7 @@ export default {
           placeholder="Digite seu e-mail"
         />
         <Form.CheckboxField
+          ariaLabel="Lembrar de mim por 30 dias"
           label={"Lembrar de mim por 30 dias"}
           isChecked={(res) => {}}
         />
@@ -84,6 +84,7 @@ export const InputCheckboxField: StoryObj<FormRootProps> = {
   args: {
     children: (
       <Form.CheckboxField
+        ariaLabel="Checkbox label text"
         label={"Checkbox label text"}
         isChecked={(res) => {}}
       />
@@ -157,6 +158,7 @@ export const SignInFormExample: StoryObj<FormRootProps> = {
                   placeholder="*********"
                 />
                 <Form.CheckboxField
+                  ariaLabel="Lembrar de mim por 30 dias"
                   label="Lembrar de mim por 30 dias"
                   isChecked={() => {}}
                 />

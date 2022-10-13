@@ -77,6 +77,7 @@ function FormTextField({
 interface FormCheckboxFieldProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
+  ariaLabel: string;
   isChecked: (value: boolean) => void;
 }
 
@@ -84,6 +85,7 @@ function FormCheckboxField({
   name,
   label,
   isChecked,
+  ariaLabel,
   ...rest
 }: FormCheckboxFieldProps) {
   const [checked, setChecked] = useState(false);
@@ -94,7 +96,11 @@ function FormCheckboxField({
 
   return (
     <div className="flex gap-2 items-center text-gray-200">
-      <Checkbox {...rest} isChecked={(res) => setChecked(res)} />
+      <Checkbox
+        ariaLabel={ariaLabel}
+        {...rest}
+        isChecked={(res) => setChecked(res)}
+      />
       <Text size="sm">{label}</Text>
     </div>
   );
