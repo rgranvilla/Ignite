@@ -1,16 +1,17 @@
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Check } from "phosphor-react";
-import { ButtonHTMLAttributes, useState } from "react";
 
-export interface CheckboxProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {
   isChecked: (value: boolean) => void;
+  ariaLabel: string;
 }
 
-export function Checkbox({ isChecked, ...rest }: CheckboxProps) {
+export function Checkbox({ isChecked, ariaLabel, ...rest }: CheckboxProps) {
   return (
     <>
       <CheckboxPrimitive.Root
         className="w-6 h-6 p-[2px] bg-gray-800 rounded"
+        aria-label={ariaLabel}
         {...rest}
       >
         <CheckboxPrimitive.Indicator asChild>
