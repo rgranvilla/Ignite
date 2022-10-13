@@ -134,7 +134,7 @@ export const SignInFormExample: StoryObj<FormRootProps> = {
   args: {
     children: (
       <div className="flex w-full justify-center bg-gray-800">
-        <div className="flex justify-center w-[460px] rounded m-20 p-8 bg-gray-900">
+        <div className="flex justify-center w-[460px] rounded m-4 p-8 bg-gray-900">
           <div className="flex flex-col items-center w-full">
             <div className="flex flex-col items-center gap-4">
               <div className="h-[120px] w-[120px]">
